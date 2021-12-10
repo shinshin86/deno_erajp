@@ -36,7 +36,7 @@ The implementation in this repository is a port of the implementation in
 
 ## Licence
 
-MIT
+[MIT](https://github.com/shinshin86/deno_erajp/blob/main/LICENSE)
 
 The Licence is MIT, according to the license of
 [go-erajp](https://github.com/mattn/go-erajp).

@@ -7,6 +7,7 @@ Deno modules for japanese era.\
 ## Usage
 
 ```typescript
+// example.ts
 import { toEraFromTime } from "./mod.ts";
 
 console.log(toEraFromTime(new Date())); // 令和
@@ -14,12 +15,18 @@ console.log(toEraFromTime(new Date("2019/5/1"))); // 令和
 console.log(toEraFromTime(new Date("2019/4/30"))); // 平成
 ```
 
-## Test
-
-`--unstable` option needs to be added.
+`--allow-read` option needs to be added.
 
 ```sh
-deno test --unstable
+deno run --allow-read example.ts
+```
+
+## Test
+
+`--allow-read --unstable` option needs to be added.
+
+```sh
+deno test --allow-read --unstable
 ```
 
 ## Thank you

@@ -1,8 +1,17 @@
-import { eras } from "./table.ts";
+type EraNum = number;
 
-type Era = number;
+type Era = {
+  name: string;
+  ruby: string;
+  rubyInitial: string;
+  year: number;
+  month: number;
+  day: number;
+};
 
-export function getEraString(era: Era): string {
+const eras: Array<Era> = JSON.parse(Deno.readTextFileSync("./data.json"));
+
+export function getEraString(era: EraNum): string {
   const eraStr = toEra(Number(era));
   return eraStr ? eraStr : era.toString();
 }

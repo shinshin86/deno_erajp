@@ -1,4 +1,4 @@
-// deno run --allow-net --allow-write tool/scrape.ts
+// deno run --allow-net --allow-write tool/scrape.ts && deno fmt
 import { initials } from "./constant.ts";
 import jsdom from "https://dev.jspm.io/jsdom";
 
@@ -78,15 +78,15 @@ async function fetchEraData(): Promise<Array<Era>> {
     if (node.noWrap && node.bgColor) {
       eraObj.name = node.textContent;
     } else if (node.noWrap && node.align) {
-      eraObj.year = node.textContent.split("～")[0];
+      eraObj.year = Number(node.textContent.split("～")[0]);
     } else if (node.noWrap) {
       eraObj.ruby = node.textContent;
       eraObj.rubyInitial = getRubyInitial(node.textContent);
     } else if (node.align && node.bgColor && !node.dl) {
       if (node.align === "left") continue;
 
-      eraObj.month = node.textContent.split("/")[0];
-      eraObj.day = node.textContent.split("/")[1];
+      eraObj.month = Number(node.textContent.split("/")[0]);
+      eraObj.day = Number(node.textContent.split("/")[1]);
     }
 
     if (hasAllEraData(eraObj)) {

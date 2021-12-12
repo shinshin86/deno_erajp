@@ -1,5 +1,7 @@
 # deno_erajp
 
+[![Deno CI](https://github.com/shinshin86/deno_erajp/actions/workflows/main.yml/badge.svg)](https://github.com/shinshin86/deno_erajp/actions/workflows/main.yml)
+
 Deno porting of [go-erajp](https://github.com/mattn/go-erajp).\
 Deno modules for japanese era.\
 (日本の元号を扱う為のライブラリである[go-erajp](https://github.com/mattn/go-erajp)をDeno向けに移植したものです。)

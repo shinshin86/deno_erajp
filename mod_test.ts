@@ -1,7 +1,4 @@
-import {
-  assertEquals,
-  assertNotEquals,
-} from "https://deno.land/std/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 import { getEraString, toEra, toEraFromTime } from "./mod.ts";
 
 type TestCase = {

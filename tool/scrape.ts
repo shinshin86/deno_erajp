@@ -49,8 +49,7 @@ function hasAllEraData(obj: Era | any): boolean {
   return false;
 }
 
-// @ts-ignore
-function readEUC(blob) {
+function readEUC(blob: Blob): Promise<string | ArrayBuffer | null> {
   return new Promise((resolve) => {
     const reader = new FileReader();
     reader.onload = () => {

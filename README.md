@@ -23,7 +23,11 @@ deno run --allow-read example.ts
 
 ## Test
 
-`--allow-read --unstable` option needs to be added.
+```sh
+deno test --allow-read
+```
+
+If the version is older than 1.18, add `--unstable`.
 
 ```sh
 deno test --allow-read --unstable

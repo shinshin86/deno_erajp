@@ -3,12 +3,12 @@ import { initials } from "./constant.ts";
 import jsdom from "https://dev.jspm.io/jsdom";
 
 type Era = {
-  name: string;
-  ruby: string;
-  rubyInitial: string;
-  year: number;
-  month: number;
-  day: number;
+  name?: string;
+  ruby?: string;
+  rubyInitial?: string;
+  year?: number;
+  month?: number;
+  day?: number;
 };
 
 const eraKeyList = ["name", "ruby", "rubyInitial", "year", "month", "day"];
@@ -35,7 +35,7 @@ function getRubyInitial(text: string): string {
 }
 
 // TODO: Refactoring
-function hasAllEraData(obj: Era | any): boolean {
+function hasAllEraData(obj: Era): boolean {
   const keys = Object.keys(obj);
 
   if (keys.length === 6) {
@@ -65,14 +65,13 @@ async function fetchEraData(): Promise<Array<Era>> {
   const blob = await response.blob();
   const html = await readEUC(blob);
 
-  // @ts-ignore
   const dom = new jsdom.JSDOM(html);
   const document = dom.window.document;
   const nodes = document.querySelectorAll("td");
 
   // TODO: Refactoring
   const result: Array<Era> = [];
-  let eraObj: Era | any = {};
+  let eraObj: Era = {};
   for (const node of nodes) {
     if (node.noWrap && node.bgColor) {
       eraObj.name = node.textContent;
